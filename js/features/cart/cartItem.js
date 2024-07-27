@@ -13,15 +13,17 @@ export default class CartItem {
     this.total = (Number(this.price) * Number(this.quantaty)).toFixed(2);
   };
   loadHtml = (index) => {
-    return `<div class="d-flex justify-content-around align-items-center gap-2 position-relative p-4 border">
+    return `<div class="d-flex justify-content-around align-items-center gap-2 position-relative p-4 border" data-id=${
+      this.id
+    }>
     <div class="position-absolute top-0 start-0  d-flex justify-content-center align-items-center"
     style="width: 30px; height: 30px; cursor:pointer;">
     <i class="fa-solid fa-xmark icon close-icon" data-product='${JSON.stringify(
       index
-    )}'></i>
+    )}' ></i>
     </div>
     <div class="w-25">
-     <img class="w-100"  src="${this.image}" alt="">
+     <img class="w-100 img-btn"  src="${this.image}" alt="" data-id="${this.id}">
    </div>
           <div class="d-flex flex-column gap-2 justify-content-center align-items-center flex-wrap">
             <h5 class="m-0">${this.title}</h5>

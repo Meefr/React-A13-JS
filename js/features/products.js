@@ -9,7 +9,7 @@ const productsSuccess = function (data) {
             <div class="border shadow rounded-2 px-1 py-2">
               <img src=${
                 item.images[0]
-              } class="w-100 mb-2" style="height: 200px" />
+              } class="w-100 mb-2 img-btn" style="height: 200px" data-id='${item.id}'/>
               <div class="mb-3">
                 <h3 class="mb-1">${item.title}</h3>
                 <p>${item.description}</p>
@@ -22,13 +22,15 @@ const productsSuccess = function (data) {
               </div>
               <div class="d-flex justify-content-between align-items-center">
                 <p class="fw-bold mb-0 fs-3">$${item.price}</p>
-                <button class="btn btn-primary" data-product='${JSON.stringify({
-                  id: item.id,
-                  title: item.title,
-                  image: item.images[0],
-                  price: item.price,
-                  stock: item.stock,
-                })}'>Add To Chart</button>
+                <button class="btn btn-primary add-btn" data-product='${JSON.stringify(
+                  {
+                    id: item.id,
+                    title: item.title,
+                    image: item.images[0],
+                    price: item.price,
+                    stock: item.stock,
+                  }
+                )}'>Add To Chart</button>
               </div>
             </div>
           </div>`;

@@ -97,6 +97,10 @@ export default class CartManager {
         } else if (target.hasClass("decrease-icon")) {
           this.#decrease(index);
         }
+      } 
+      if ($(e.target).hasClass("img-btn")) {
+        const itemId = $(e.target).attr("data-id");
+        window.location.href = `..//..//..//html/movie.html?id=${itemId}`;
       }
     });
   };
