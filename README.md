@@ -2,7 +2,7 @@
 # DEPI Internship JavaScript API Project - Shop Store project 
 
 
-This repository contains an assignment for the Digital Egypt Pioneers Initiative (DEPI) Internship, focusing on creating cart features using OOP. 
+This repository contains an assignment for the Digital Egypt Pioneers Initiative (DEPI) Internship, focusing on creating cart features using OOP & BOM (Browser Object Model). 
 ## Tech Stack
 
 **Client:** HTML, CSS, Bootstrap, JS, Jquery 
