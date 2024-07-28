@@ -23,7 +23,9 @@ export default class CartItem {
     )}' ></i>
     </div>
     <div class="w-25">
-     <img class="w-100 img-btn"  src="${this.image}" alt="" data-id="${this.id}">
+     <img class="w-100 img-btn"  src="${this.image}" alt="" data-id="${
+      this.id
+    }">
    </div>
           <div class="d-flex flex-column gap-2 justify-content-center align-items-center flex-wrap">
             <h5 class="m-0">${this.title}</h5>
@@ -43,8 +45,10 @@ export default class CartItem {
   };
 
   increase = () => {
-    if (this.quantaty < this.stock) this.quantaty++;
-    else console.log("Out of stock");
+    if (this.quantaty < this.stock) {
+      this.quantaty++;
+      this.calculateTotal();
+    } else console.log("Out of stock");
   };
 
   decrease = () => {
