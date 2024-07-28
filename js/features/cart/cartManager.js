@@ -97,8 +97,10 @@ export default class CartManager {
         }
       }
       if ($(e.target).hasClass("img-btn")) {
-        const itemId = $(e.target).attr("data-id");
-        window.location.href = `./html/movie.html?id=${itemId}`;
+        const itemId = target.attr("data-id");
+        const path = target.attr("path")
+            const rootUrl = `${window.location.protocol}//${window.location.host}`;
+        window.location.href = `${rootUrl}/html/movie.html?id=${itemId}`;
       }
     });
   };
