@@ -29,6 +29,9 @@ export default class CartManager {
     $("#close-btn").on("click", function () {
       $("#cart-element").css("right", "-100%");
     });
+    $("#home-btn").on("click", function () {
+      window.location.href = `../index.html`;
+    });
   };
   #loadCart = function () {
     if (this.cartItems.length == 0) {
@@ -98,9 +101,14 @@ export default class CartManager {
       }
       if ($(e.target).hasClass("img-btn")) {
         const itemId = target.attr("data-id");
-        const path = target.attr("path")
-            const rootUrl = `${window.location.protocol}//${window.location.host}`;
-        window.location.href = `${rootUrl}/html/movie.html?id=${itemId}`;
+        const path = target.attr("path");
+        const pahtName = `${window.location.pathname}`;
+        if (pahtName.includes("movie.html")) {
+          window.location.href = `movie.html?id=${itemId}`;
+        } else {
+          window.location.href = `html/movie.html?id=${itemId}`;
+        }
+        // console.log(rootUrl);
       }
     });
   };
