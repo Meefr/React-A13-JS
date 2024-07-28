@@ -86,6 +86,6 @@ itemsElement.on("click", (e) => {
   }
   if ($(e.target).hasClass("img-btn")) {
     const itemId = $(e.target).attr("data-id");
-    window.location.href = ("_self"),`..//..//..//html//movie.html?id=${itemId}`;
+    window.location.href = (`html//movie.html?id=${itemId}`);
   }
 });
