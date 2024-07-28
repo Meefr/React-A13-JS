@@ -102,7 +102,7 @@
 
 <body>
   <!-- Navabar -->
-  <nav class="bg-dark py-3 mb-5">
+  <nav class="bg-dark py-3 mb-5" id="nav-bar">
     <div class="container d-flex justify-content-end alighn-items-center">
       <button id="cart-btn" class="btn btn-primary">
         chart
@@ -113,10 +113,13 @@
   </nav>
 
   <main class="container">
-    <div id="cart-element">
-      <button id="close-btn">&times;</button>
-      <div class="p-4 h-100" id="cart-list"></div>
+    <div id="cart-container">
+      <div id="cart-element">
+        <button id="close-btn">&times;</button>
+        <div class="p-4 h-100" id="cart-list"></div>
+      </div>
     </div>
+
     <div id="loading" class="d-flex vh-100 justify-content-center align-items-center">
       <h2>Loading....</h2>
     </div>

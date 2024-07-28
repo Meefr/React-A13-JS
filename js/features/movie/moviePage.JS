@@ -1,13 +1,20 @@
 import handelRemoteRequest from "../../shares/api.js";
+import CartManager from "../cart/cartManager.js";
+import { moviePage } from "../../shares/ui/dom-elements.js";
+
+moviePage.on("click", (e) => {
+  if ($(e.target).attr("data-product")) {
+    // console.log(JSON.parse($(e.target).attr("data-product")));
+    let cartitem = JSON.parse($(e.target).attr("data-product"));
+    cartManager.addToCart(cartitem);
+  }
+});
 
 let itemId;
-const moviePage = $("#movie-page");
 
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   itemId = urlParams.get("id");
-  console.log(itemId);
-
   handelRemoteRequest(
     `products/${itemId}`,
     (data) => movieSuccess(data),
@@ -107,7 +114,13 @@ const movieSuccess = (data) => {
                 <div class="d-flex justify-content-between align-items-center gap-2">
                     <p class="fw-bold mb-0 fs-3">$${discountedPrice} <small class="text-muted"><del>$${price}</del> (${discountPercentage}% off)</small></p>
                     <button class="btn btn-primary" data-product='${JSON.stringify(
-                      data
+                      {
+                        id: Number(itemId),
+                        title: data.title,
+                        image: data.images[0],
+                        price: data.price,
+                        stock: data.stock,
+                      }
                     )}'>Add To Cart</button>
                 </div>
             </div>
@@ -131,3 +144,28 @@ const movieSuccess = (data) => {
         </div>
     `);
 };
+let cartManager;
+
+let loadHTML = (file, elementId) => {
+  return fetch(file)
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById(elementId).innerHTML = data;
+    })
+    .catch((error) => console.error("Error loading HTML:", error));
+};
+
+let multiLoads = async () => {
+  await Promise.all([
+    loadHTML("navbar.html", "nav-bar"),
+    loadHTML("cart.html", "cart-container"),
+  ]);
+};
+
+multiLoads()
+  .then(() => {
+    cartManager = new CartManager();
+  })
+  .catch((error) => {
+    console.error("Error initializing CartManager:", error);
+  });

@@ -86,6 +86,21 @@ itemsElement.on("click", (e) => {
   }
   if ($(e.target).hasClass("img-btn")) {
     const itemId = $(e.target).attr("data-id");
-    window.location.href = (`html/movie.html?id=${itemId}`);
+    window.location.href = `html/movie.html?id=${itemId}`;
   }
 });
+
+// let loadHTML = (file, elementId) => {
+//   fetch(file)
+//   .then((response) => response.text())
+//   .then((data) => {
+//       document.getElementById(elementId).innerHTML = data;
+//     })
+//     .catch((error) => console.error("Error loading HTML:", error));
+//   };
+//   let multiloads = () => {
+//     loadHTML('../html/navbar.html','nav-bar');
+//     loadHTML("../html/cart.html", "cart-container");
+//     cartManager = new CartManager()
+// }
+// multiloads();

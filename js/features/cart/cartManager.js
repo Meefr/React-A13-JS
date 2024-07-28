@@ -15,11 +15,9 @@ export default class CartManager {
     if (data) {
       data.map((item) => {
         let product = new CartItem(item, item.quantaty);
-        console.log(product);
         this.cartItems.push(product);
       });
     }
-
     window.addEventListener("beforeunload", () => {
       localStorage.setItem("data", JSON.stringify(this.cartItems));
     });
@@ -97,7 +95,7 @@ export default class CartManager {
         } else if (target.hasClass("decrease-icon")) {
           this.#decrease(index);
         }
-      } 
+      }
       if ($(e.target).hasClass("img-btn")) {
         const itemId = $(e.target).attr("data-id");
         window.location.href = `..//..//..//html/movie.html?id=${itemId}`;
