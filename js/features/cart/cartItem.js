@@ -21,9 +21,9 @@ export default class CartItem {
           )}' ></i>
           </div>
           <div class="w-25">
-<img class="w-100 img-btn"  src="${this.image}" alt="" data-id="${
-      this.id
-    }">         </div>
+<img class="w-100 img-btn cursor-pointer"  src="${
+      this.image
+    }" alt="" data-id="${this.id}">         </div>
                 <div class="d-flex flex-column gap-2 justify-content-center align-items-center flex-wrap">
                   <h5 class="m-0">${this.title}</h5>
                   <p class="m-0">Price: <span>${this.quantaty}</span> x <span>${

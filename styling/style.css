@@ -9,6 +9,9 @@ html{
   --transition: 0.5s ease;
   --transition-style:ease;
 }
+.cursor-pointer{
+    cursor: pointer;
+}
 .popup-notification {
   position: fixed;
   bottom: 20px;

@@ -110,18 +110,16 @@ multiLoads()
     console.error("Error initializing CartManager:", error);
   });
 
-
 itemsElement.on("click", (e) => {
-  if ($(e.target).attr("data-product")) {
-    if ($(e.target).hasClass("add-btn")) {
-      // console.log(JSON.parse($(e.target).attr("data-product")));
-      let cartitem = JSON.parse($(e.target).attr("data-product"));
-      cartManager.addToCart(cartitem);
-      showPopupNotification(cartitem.title);
-    }
-  }
-  if ($(e.target).hasClass("img-btn")) {
-    const itemId = $(e.target).attr("data-id");
+  e.preventDefault(); // Prevent default action
+
+  const target = $(e.target);
+  if (target.hasClass("add-btn")) {
+    const cartitem = JSON.parse(target.attr("data-product"));
+    cartManager.addToCart(cartitem);
+    showPopupNotification(cartitem.title);
+  } else if (target.closest("[data-id]").length > 0) {
+    const itemId = target.closest("[data-id]").attr("data-id");
     window.location.href = `html/movie.html?id=${itemId}`;
   }
 });
