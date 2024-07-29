@@ -10,6 +10,15 @@ export default class CartManager {
     this.#handelToggleCart();
   }
 
+  #showPopupNotification = function(text) {
+  const popup = document.getElementById("popup-notification");
+  popup.innerHTML = `${text} added to cart`;
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+  }, 2000); // Hide after 2 seconds
+}
   #loadData = function () {
     const data = JSON.parse(localStorage.getItem("data"));
     if (data) {
@@ -61,6 +70,8 @@ export default class CartManager {
       this.cartItems[index].quantaty++;
       this.cartItems[index].calculateTotal();
     }
+    console.log(this.cartItems[index]);
+    this.#showPopupNotification(this.cartItems[index].title);
     this.#loadCart();
   };
   //delete

@@ -22,7 +22,7 @@ const productsSuccess = function (data) {
                 <div class="d-flex justify-content-around align-items-center flex-nowrap gap-1 py-2">
                   <p class="m-0 fw-bold fs-3">$${item.price}</p>
                   
-                  <button class="btn btn-primary add-btn" data-product='${JSON.stringify(
+                  <button class="btn btn-primary btn-bg-danger add-btn" data-product='${JSON.stringify(
                     {
                       id: item.id,
                       title: item.title,

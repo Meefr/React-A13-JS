@@ -4,8 +4,8 @@ import { moviePage } from "../../shares/ui/dom-elements.js";
 
 moviePage.on("click", (e) => {
   if ($(e.target).attr("data-product")) {
-    // console.log(JSON.parse($(e.target).attr("data-product")));
     let cartitem = JSON.parse($(e.target).attr("data-product"));
+    // console.log(JSON.parse($(e.target).attr("data-product")));
     cartManager.addToCart(cartitem);
   }
 });
@@ -93,12 +93,12 @@ const movieSuccess = (data) => {
                 <div class="carousel-inner" id="movie-imgs">
                     ${loadImgs(images)}
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <button class="carousel-control-prev slider-button" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon slider-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <button class="carousel-control-next slider-button" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span class="carousel-control-next-icon slider-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
@@ -113,7 +113,7 @@ const movieSuccess = (data) => {
                 </div>
                 <div class="d-flex justify-content-between align-items-center gap-2">
                     <p class="fw-bold mb-0 fs-3">$${discountedPrice} <small class="text-muted"><del>$${price}</del> (${discountPercentage}% off)</small></p>
-                    <button class="btn btn-primary" data-product='${JSON.stringify(
+                    <button class="btn btn-primary btn-bg-danger "  data-product='${JSON.stringify(
                       {
                         id: Number(itemId),
                         title: data.title,

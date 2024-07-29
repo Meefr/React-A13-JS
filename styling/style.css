@@ -9,6 +9,31 @@ html{
   --transition: 0.5s ease;
   --transition-style:ease;
 }
+.bg-danger{
+    background-color: var(--bg-danger) !important;
+}
+.btn-bg-danger{
+    border-color: var(--bg-danger) !important;
+    background-color: var(--bg-danger) !important;
+    transition: 0.3s ease;
+}
+.btn-bg-danger:hover{
+    background-color: white !important;
+    color: var(--bg-danger) !important;
+}
+
+.slider-icon{
+    color: var(--bg-danger) !important;
+    border-color: #DC3545 !important;
+    background-color: #DC3545 !important;
+    border-radius: 10px;
+    height: 30% !important;
+    transition: 0.3s ease-in-out;
+}
+.slider-button:hover .slider-icon{
+    background-color: var(--bg-danger) !important;
+    height: 40% !important;
+}
 .cursor-pointer{
     cursor: pointer;
 }

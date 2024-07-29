@@ -77,15 +77,7 @@ function handelGetProductsByCategory() {
 
 let cartManager;
 
-function showPopupNotification(text) {
-  const popup = document.getElementById("popup-notification");
-  popup.innerHTML = `${text} added to cart`;
-  popup.classList.add("show");
 
-  setTimeout(() => {
-    popup.classList.remove("show");
-  }, 2000); // Hide after 2 seconds
-}
 let loadHTML = (file, elementId) => {
   return fetch(file)
     .then((response) => response.text())
@@ -117,7 +109,6 @@ itemsElement.on("click", (e) => {
   if (target.hasClass("add-btn")) {
     const cartitem = JSON.parse(target.attr("data-product"));
     cartManager.addToCart(cartitem);
-    showPopupNotification(cartitem.title);
   } else if (target.closest("[data-id]").length > 0) {
     const itemId = target.closest("[data-id]").attr("data-id");
     window.location.href = `html/movie.html?id=${itemId}`;
