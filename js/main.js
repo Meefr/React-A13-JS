@@ -98,7 +98,7 @@ let loadHTML = (file, elementId) => {
 let multiLoads = async () => {
   await Promise.all([
     // loadHTML("navbar.html", "nav-bar"),
-    loadHTML("..//html/cart.html", "cart-element"),
+    loadHTML(".//html/cart.html", "cart-element"),
   ]);
 };
 
