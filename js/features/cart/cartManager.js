@@ -4,10 +4,10 @@ export default class CartManager {
   constructor() {
     this.cartList = $("#cart-list");
     this.cartItems = [];
-    this.#handelToggleCart();
     this.#loadData();
     this.#loadCart();
     this.#updateCartItem();
+    this.#handelToggleCart();
   }
 
   #loadData = function () {
@@ -23,6 +23,7 @@ export default class CartManager {
     });
   };
   #handelToggleCart = function () {
+    $("#cart-number").html(this.cartItems.length);
     $("#cart-btn").on("click", function () {
       $("#cart-element").css("right", "0px");
     });
@@ -44,7 +45,9 @@ export default class CartManager {
       })
       .join("")
     );
-    console.log(this.cartList.html());
+    // console.log(this.cartList.html());
+        $("#cart-number").html(this.cartItems.length);
+
   };
 
   //add to cart

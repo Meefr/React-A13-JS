@@ -1,0 +1,136 @@
+html{
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent ;
+  cursor: default;
+}
+:root{
+  --bg-danger:#DC3545;
+  --text-danger:#DC3545;
+  --transition: 0.5s ease;
+  --transition-style:ease;
+}
+.popup-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition), visibility var(--transition);
+  z-index: 10000;
+}
+
+.popup-notification.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.display-none {
+  display: none !important;
+}
+li {
+  cursor: pointer;
+}
+#cart-element {
+  transition: 0.7s ease;
+}
+#cart-close-btn {
+  cursor: pointer;
+}
+#categories{
+  overflow: auto;
+  height: 50vh;
+}
+h3{
+  border-bottom: 1px solid;
+  padding-bottom: 20px;
+}
+#categories li{
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: large;
+  transition: var(--transition);
+  /* background-color: aquamarine; */
+  width: 90%;
+}
+
+#categories li:hover{
+  color: white;
+  width: 100%;
+  background-color: var(--text-danger);
+
+}
+.out-left-screen {
+  right: -100%;
+}
+.left-0 {
+  left: 0px!important;
+}
+.h100{
+    height: 100%;
+}
+.icon{
+  transition: var(--transition);
+}
+.icon:hover{
+  color: var(--bg-danger) ;
+}
+.cat-selected{
+  background-color: var(--bg-danger) !important;
+  color: white !important;
+}
+
+
+@media (max-width: 992px) {
+  /* For screens smaller than md */
+  #side-bar {
+    position: fixed;
+    width: fit-content;
+    height: 70vh;
+    left: -190px;
+    right: calc(100% - 10px) !important;
+    /* transition: var(--transition)-in-out; */
+    /* z-index: -10000; */
+  }
+
+}
+#side-bar {
+  transition: all 0.5s ease-in-out;
+  background-color: #ffffff;
+  /* z-index: -10000; */
+}
+#slider {
+  cursor: pointer;
+  position: absolute;
+  top: 50px;
+  left: calc(100%);
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 10000;
+  /* right: -100%; */
+}
+#sidebar {
+  transition: 0.5s ease-in-out;
+}
+@media (min-width: 992px) {
+  /* For screens larger than or equal to md */
+  #sidebar {
+    left: 0; /* Align the sidebar to the left of the viewport */
+  }
+  #slider {
+    display: none;
+  }
+  #side-bar{
+        position: fixed;
+    left: 0;
+  }
+}

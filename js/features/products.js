@@ -5,24 +5,26 @@ const productsSuccess = function (data) {
     data.products
       .map((item, index) => {
         return `
-          <div class="col-4">
-            <div class="border shadow rounded-2 px-1 py-2">
-              <img src=${
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="border rounded-2">
+               <img src=${
                 item.images[0]
-              } class="w-100 mb-2 img-btn" style="height: 200px" data-id='${item.id}'/>
-              <div class="mb-3">
-                <h3 class="mb-1">${item.title}</h3>
-                <p>${item.description}</p>
-              </div>
-              <div class="d-flex gap-1 mb-3 align-items-center">
-                <span>★</span>
-                <div class="px-2 bg-danger bg-opacity-75 rounded-2">${
-                  item.rating
-                }</div>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <p class="fw-bold mb-0 fs-3">$${item.price}</p>
-                <button class="btn btn-primary add-btn" data-product='${JSON.stringify(
+              } class="w-100 mb-2 img-btn" style="" data-id='${item.id}'/>
+              <div class="px-2">
+                <div class="">
+                  <h3>${item.title}</h3>
+                  <p>${item.description}</p>
+                </div>
+                <div class="d-flex flex-nowrap align-items-center gap-1 px-3 py-2">
+                  <i class="fa fa-star" style="color:#F7C600"></i>
+                  <p class="m-0 bg-danger bg-opacity-50 p-1 rounded-2">${
+                    item.rating
+                  }</p>
+                </div>
+                <div class="d-flex justify-content-around align-items-center flex-nowrap gap-1 py-2">
+                  <p class="m-0 fw-bold fs-3">$${item.price}</p>
+                  
+                  <button class="btn btn-primary add-btn" data-product='${JSON.stringify(
                   {
                     id: item.id,
                     title: item.title,
@@ -31,11 +33,13 @@ const productsSuccess = function (data) {
                     stock: item.stock,
                   }
                 )}'>Add To Chart</button>
+                </div>
               </div>
             </div>
           </div>`;
       })
       .join("")
+       
   );
 };
 export default productsSuccess;

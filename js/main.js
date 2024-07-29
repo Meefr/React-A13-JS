@@ -21,6 +21,8 @@ const requestsConfig = [
   },
 ];
 
+
+
 getManyRequsets(
   {
     startLoading: () => {
@@ -73,7 +75,41 @@ function handelGetProductsByCategory() {
 
 //chart
 
-const cartManager = new CartManager();
+let cartManager;
+
+function showPopupNotification(text) {
+  const popup = document.getElementById("popup-notification");
+  popup.innerHTML = `${text} added to cart`;
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+  }, 2000); // Hide after 2 seconds
+}
+let loadHTML = (file, elementId) => {
+  return fetch(file)
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById(elementId).innerHTML = data;
+    })
+    .catch((error) => console.error("Error loading HTML:", error));
+};
+
+let multiLoads = async () => {
+  await Promise.all([
+    // loadHTML("navbar.html", "nav-bar"),
+    loadHTML("..//html/cart.html", "cart-element"),
+  ]);
+};
+
+multiLoads()
+  .then(() => {
+    cartManager = new CartManager();
+  })
+  .catch((error) => {
+    console.error("Error initializing CartManager:", error);
+  });
+
 
 itemsElement.on("click", (e) => {
   if ($(e.target).attr("data-product")) {
@@ -81,6 +117,7 @@ itemsElement.on("click", (e) => {
       // console.log(JSON.parse($(e.target).attr("data-product")));
       let cartitem = JSON.parse($(e.target).attr("data-product"));
       cartManager.addToCart(cartitem);
+      showPopupNotification(cartitem.title);
     }
   }
   if ($(e.target).hasClass("img-btn")) {
