@@ -1,8 +1,8 @@
 import CartItem from "../cart/cartItem.js";
-import { cartList } from "../../shares/ui/dom-elements.js";
 
 export default class CartManager {
   constructor() {
+    this.cartList = $("#cart-list");
     this.cartItems = [];
     this.#handelToggleCart();
     this.#loadData();
@@ -35,15 +35,16 @@ export default class CartManager {
   };
   #loadCart = function () {
     if (this.cartItems.length == 0) {
-      cartList.html("<div>no data added! </div>");
+      this.cartList.html("<div>no data added! </div>");
     } else
-      cartList.html(
-        this.cartItems
-          .map((item, index) => {
-            return item.loadHtml(index);
-          })
-          .join("")
-      );
+    this.cartList.html(
+      this.cartItems
+      .map((item, index) => {
+        return item.loadHtml(index);
+      })
+      .join("")
+    );
+    console.log(this.cartList.html());
   };
 
   //add to cart
@@ -87,7 +88,7 @@ export default class CartManager {
   };
 
   #updateCartItem = () => {
-    cartList.on("click", (e) => {
+    this.cartList.on("click", (e) => {
       const target = $(e.target);
       if (target.attr("data-product")) {
         const index = JSON.parse(target.attr("data-product"));

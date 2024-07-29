@@ -8,7 +8,6 @@ import {
   mainElement,
   catgoriesContainer,
   itemsElement,
-  cartList,
 } from "./shares/ui/dom-elements.js";
 
 const requestsConfig = [
